@@ -1,0 +1,25 @@
+{  
+"projects": [
+  {
+    "id": 1,
+    "title": "PinoyCampground",
+    "description": "A full-featured campground app with interactive map, campground creation, clustering of locations, Google login, email-based password reset, and OTP verification for account creation.",
+    "image": "/images/project-1.png",
+    "url": "https://pinoycampground.onrender.com/",
+    "date": "2025-10-01",
+    "category": "Fullstack",
+    "featured": false
+  },
+  {
+    "id": 2,
+    "title": "CryptoView",
+    "description": "A React-based cryptocurrency dashboard built for learning purposes as part of a course project, showcasing API integration and data visualization.",
+    "image": "/images/project-2.png",
+    "url": "https://crypto-view-tau.vercel.app/",
+    "date": "2025-11-01",
+    "category": "Frontend",
+    "featured": true
+  }
+
+]
+}

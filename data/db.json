@@ -16,7 +16,27 @@
     "description": "A React-based cryptocurrency dashboard built for learning purposes as part of a course project, showcasing API integration and data visualization.",
     "image": "/images/project-2.png",
     "url": "https://crypto-view-tau.vercel.app/",
-    "date": "2025-11-01",
+    "date": "2025-10-30",
+    "category": "Frontend",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "CryptoView",
+    "description": "A React-based cryptocurrency dashboard built for learning purposes as part of a course project, showcasing API integration and data visualization.",
+    "image": "/images/project-2.png",
+    "url": "https://crypto-view-tau.vercel.app/",
+    "date": "2025-11-05",
+    "category": "Frontend",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "CryptoView",
+    "description": "A React-based cryptocurrency dashboard built for learning purposes as part of a course project, showcasing API integration and data visualization.",
+    "image": "/images/project-2.png",
+    "url": "https://crypto-view-tau.vercel.app/",
+    "date": "2024-10-30",
     "category": "Frontend",
     "featured": true
   }

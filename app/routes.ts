@@ -4,7 +4,7 @@ export default [
   layout('./routes/layouts/home.tsx', [index("routes/home/index.tsx")]),
   // index("routes/home/index.tsx"),
 
-  layout('./routes/layouts/main.tsx', [
+  layout('./routes/layouts/main.tsx', [ //below are the child routes of main.tsx
     route('about', './routes/about/index.tsx'),
     // route('about/self', './routes/about/self.tsx'),
     route('contact', './routes/contact/index.tsx'),

@@ -1,3 +1,12 @@
+import type { Route } from "./+types";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Portfolio Dev | Contact" },
+    { name: "description", content: "Custom portfolio dev development" },
+  ];
+}
+
 const ContactPage = () => {
   return ( 
     <>

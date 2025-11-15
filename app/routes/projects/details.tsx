@@ -4,7 +4,7 @@ import { LiaArrowLeftSolid, LiaArrowRightSolid } from "react-icons/lia";
 import { Link } from "react-router";
 
 export async function clientLoader ({ request, params }: Route.ClientLoaderArgs):Promise<Project>{
-  const res = await fetch(`http://localhost:8000/projects/${params.id}`);
+  const res = await fetch(`${import.meta.env.VITE_API_URL}/projects/${params.id}`); //for frontend import.meta.env.
 
   if(!res.ok) throw new Response('Project not found', { status: 404 });
 

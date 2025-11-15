@@ -6,6 +6,7 @@ import ProjectCard from "~/components/ProjectCard";
 import Pagination from "~/components/Pagination";
 import { AnimatePresence, motion } from "framer-motion";
 
+
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Portfolio Dev | Projects" },
@@ -14,7 +15,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({request,}: Route.LoaderArgs):Promise<{projects: Project[]}>{ //request in Typescript we used Route.LoaderArgs for its type in fetching data
-  const res = await fetch('http://localhost:8000/projects'); //:Promise<any> its just optional react router already knows loader function
+  const res = await fetch(`${import.meta.env.VITE_API_URL}/projects`); //:Promise<any> its just optional react router already knows loader function
   const data = await res.json();  //:Promise<{projects: Project[]}> setting up types them import Project
 
   return { projects: data } //named it projects based on api endpoint name for readability

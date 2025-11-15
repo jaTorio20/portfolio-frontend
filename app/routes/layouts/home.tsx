@@ -1,5 +1,6 @@
 import { Outlet } from "react-router";
 import Hero from "~/components/Hero";
+import AboutPreview from "~/components/AboutPreview";
 
 const HomeLayout = () => {
   return ( 
@@ -10,6 +11,8 @@ const HomeLayout = () => {
          layout('./routes/layouts/home.tsx', [index("routes/home/index.tsx")]),
         */}
         <Outlet/> 
+
+        <AboutPreview/>
       </section>
     </>
    );

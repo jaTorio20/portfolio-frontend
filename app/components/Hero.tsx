@@ -10,9 +10,9 @@ const Hero = ({
   text = 'Aspiring Full Stack Software Engineer',
 }: HeroProps) => {
   return (
-    <header className=' py-20 px-4  text-white transition-colors duration-300'>
+    <header className=' py-20 text-white transition-colors duration-300 max-w-7xl mx-auto my-8'>
       <div className='grid md:grid-cols-12 grid-cols-1'>
-          <div className='md:col-span-8 text-center'>
+          <div className='md:col-span-6 text-center mb-8 p-3'>
               <h2 className='text-4xl font-bold mb-4'>Hello, I'm {name}</h2>
               <p className='text-lg text-gray-300 max-w-2xl mx-auto mb-6'>{text}</p>
               <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
@@ -30,10 +30,8 @@ const Hero = ({
                 </Link>
               </div>
           </div>
-          <div className="md:col-span-4 text-center">
-
-            <span>image</span>
-            <img alt="Profile" />
+          <div className="md:col-span-6 flex justify-center text-center px-5">
+            <img className='rounded-4xl w-full sm:w-2/3 md:w-2/3 h-auto' alt="Profile" src='/images/gradPhoto2.jpg'/>
           </div>
       </div>
     </header>

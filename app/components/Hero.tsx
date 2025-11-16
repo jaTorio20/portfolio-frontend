@@ -18,7 +18,7 @@ const Hero = ({
               <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
                 <Link
                   to='/projects'
-                  className='w-3/4 md:w-auto bg-gray-100 text-gray-900 px-5 py-2 rounded hover:bg-white transition-transform hover:-translate-y-1 duration-300'
+                  className='w-3/4 md:w-auto bg-white text-gray-900 px-5 py-2 rounded transition-transform hover:-translate-y-1 duration-300'
                 >
                   View Projects
                 </Link>

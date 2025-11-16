@@ -17,7 +17,7 @@ const AboutPreview = () => {
         </p>
         <Link
           to='/about'
-          className='inline-block text-blue-400 hover:underline text-sm'
+          className='inline-block text-indigo-400 hover:underline text-sm'
         >
           Learn More About Me
         </Link>

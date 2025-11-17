@@ -8,7 +8,7 @@ const AboutPage = () => {
         <img
           src='/images/gradPhoto2.jpg'
           alt='profile'
-          className='w-40 h-40 rounded-full object-cover hover:scale-102 duration-300 transform about-card'
+          className='w-40 h-40 rounded-full object-cover hover:scale-102 duration-300 transform shadow-card'
         />
         <div>
           <h1 className='text-3xl font-bold text-white mb-2'>

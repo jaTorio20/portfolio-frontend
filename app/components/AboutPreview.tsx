@@ -6,7 +6,8 @@ const AboutPreview = () => {
         <img
           src='/images/gradPhoto2.jpg'
           alt='profile'
-          className='w-32 h-32 rounded-full object-cover hover:scale-102 duration-300 transform about-card'
+          className='w-32 h-32 rounded-full object-cover hover:scale-102 
+          duration-300 transform shadow-card'
         />
       
       <div>

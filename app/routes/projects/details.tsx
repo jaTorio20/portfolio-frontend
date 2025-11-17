@@ -31,11 +31,11 @@ const ProjectDetailsPage = ({ loaderData }:Route.ComponentProps) => {
       </Link>
 
       <div className="grid gap-8 md:grid-cols-2 items-start">
-        <div>
+        <div >
           <img 
             src={project.image} 
             alt={project.title} 
-            className="w-full rounded-lg shadow-md"
+            className="w-full rounded-lg shadow-card"
             />
         </div>
         <div>

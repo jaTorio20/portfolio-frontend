@@ -14,4 +14,8 @@ body {
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+
+  .shadow-card {
+    box-shadow: 0 0px 12px rgba(117, 131, 255, 0.25);
+}
 }

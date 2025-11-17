@@ -8,7 +8,8 @@
     "url": "https://pinoycampground.onrender.com/",
     "date": "2025-10-01",
     "category": "Fullstack",
-    "featured": false
+    "featured": false,
+    "stack": ["EJS", "Node.js", "Express", "MongoDB", "Bootstrap"]
   },
   {
     "id": 2,
@@ -18,7 +19,8 @@
     "url": "https://crypto-view-tau.vercel.app/",
     "date": "2025-10-30",
     "category": "Frontend",
-    "featured": true
+    "featured": true,
+    "stack": ["EJS", "Node.js", "Express", "MongoDB", "Bootstrap"]
   },
   {
     "id": 3,
@@ -28,7 +30,8 @@
     "url": "https://crypto-view-tau.vercel.app/",
     "date": "2025-11-05",
     "category": "Frontend",
-    "featured": true
+    "featured": true,
+    "stack": ["EJS", "Node.js", "Express", "MongoDB", "Bootstrap"]
   },
   {
     "id": 4,
@@ -38,7 +41,8 @@
     "url": "https://crypto-view-tau.vercel.app/",
     "date": "2024-10-30",
     "category": "Frontend",
-    "featured": true
+    "featured": true,
+    "stack": ["EJS", "Node.js", "Express", "MongoDB", "Bootstrap"]
   }
 
 ]

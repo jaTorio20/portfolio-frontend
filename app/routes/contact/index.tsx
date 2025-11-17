@@ -62,7 +62,8 @@ const ContactPage = ({ actionData, }: Route.ComponentProps) => {
             htmlFor="name" 
             className="block text-sm font-medium text-gray-300 bg-transparent">Full Name</label>
             <input id="name" type="text" name="name"
-            className="w-full mt-1 px-4 py-2 border border-gray-700
+            className="w-full focus:outline-none focus:ring-1 focus:ring-blue-400
+             mt-1 px-4 py-2 border border-gray-700
             rounded-lg bg-gray-900 text-gray-100" />
             { errors.name && (
               <p className="text-red-400 text-sm mt-1">
@@ -76,7 +77,8 @@ const ContactPage = ({ actionData, }: Route.ComponentProps) => {
             htmlFor="email" 
             className="block text-sm font-medium text-gray-300">Email</label>
             <input id="email" type="email" name="email"
-            className="w-full mt-1 px-4 py-2 border border-gray-700
+            className="w-full focus:outline-none focus:ring-1 focus:ring-blue-400
+             mt-1 px-4 py-2 border border-gray-700
             rounded-lg bg-gray-900 text-gray-100" />
             { errors.email && (
               <p className="text-red-400 text-sm mt-1">
@@ -90,7 +92,8 @@ const ContactPage = ({ actionData, }: Route.ComponentProps) => {
             htmlFor="subject" 
             className="block text-sm font-medium text-gray-300">Subject</label>
             <input id="subject" type="text" name="subject"
-            className="w-full mt-1 px-4 py-2 border border-gray-700
+            className="w-full focus:outline-none focus:ring-1 focus:ring-blue-400
+            mt-1 px-4 py-2 border border-gray-700
             rounded-lg bg-gray-900 text-gray-100" />
               { errors.subject && (
               <p className="text-red-400 text-sm mt-1">
@@ -104,7 +107,8 @@ const ContactPage = ({ actionData, }: Route.ComponentProps) => {
             htmlFor="message" 
             className="block text-sm font-medium text-gray-300">Message</label>
             <textarea id="message" name="message"
-            className="w-full mt-1 px-4 py-2 border border-gray-700
+            className="w-full focus:outline-none focus:ring-1 focus:ring-blue-400
+            mt-1 px-4 py-2 border border-gray-700
             rounded-lg bg-gray-900 text-gray-100" />
             { errors.message && (
               <p className="text-red-400 text-sm mt-1">

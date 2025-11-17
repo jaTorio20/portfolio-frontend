@@ -6,7 +6,8 @@ export type Project = {
   url: string,
   date: string,
   category: string,
-  featured: boolean
+  featured: boolean,
+  stack: string[]
 }
 
 export type PostMeta = {

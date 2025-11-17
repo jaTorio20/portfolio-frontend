@@ -29,7 +29,7 @@ const AboutPage = () => {
         the MERN stack and TypeScript. My passion lies in building full-stack
         applications that are clean, scalable, and user-friendly. I am currently
         learning new skills and exploring modern technologies to stay adaptable in the
-        fast-evolving tech industry. As I begin my professional journey, I’m eager to
+        fast-evolving tech industry. As I begin my professional journey, I'm eager to
         contribute my energy, curiosity, and creativity to projects that make a real
         impact.
       </p>
@@ -50,7 +50,7 @@ const AboutPage = () => {
           'MySQL',
           'EJS',
         ].map((tech) => (
-          <li key={tech} className='px-3 py-1 border rounded border-gray-700 text-gray-200 hover:bg-gray-900 transform'>
+          <li key={tech} className='px-3 py-1 border rounded border-gray-700 text-gray-200 hover:bg-gray-900 transform shadow-card'>
             {tech}
           </li>
         ))}

@@ -1,28 +1,41 @@
 import type { Route } from "./+types/details";
-import type { Project } from "~/types";
+import type { Project, StrapiProject, StrapiResponse } from "~/types";
 import { LiaArrowLeftSolid, LiaArrowRightSolid } from "react-icons/lia";
 import { Link } from "react-router";
 import { li } from "framer-motion/client";
 
-export async function clientLoader ({ request, params }: Route.ClientLoaderArgs):Promise<Project>{
-  const res = await fetch(`${import.meta.env.VITE_API_URL}/projects/${params.id}`); //for frontend import.meta.env.
+export async function loader ({ request, params }: Route.LoaderArgs){
+  const { id } = params;
+
+  const res = await fetch(`${import.meta.env.VITE_API_URL}/projects?filters[documentId][$eq]=${id}&populate=*`); //for frontend import.meta.env.
 
   if(!res.ok) throw new Response('Project not found', { status: 404 });
 
-  const project:Project = await res.json();
-  return project;
+  const json:StrapiResponse<StrapiProject> = await res.json();
+
+  const item = json.data[0];
+
+  const project:Project = {
+    id: item.id,
+    documentId: item.documentId,
+    title: item.title,
+    description: item.description,
+    image: item.image?.url ? `${item.image.url}` : //removing ${import.meta.env.VITE_STRAPI_URL} we're using cloudinary set up for    
+    `/images/no-image.png`,
+    url: item.url,
+    date: item.date,
+    category: item.category,
+    featured: item.featured,
+    stack: item.stack
+  }
+
+  return {project}; // ensure it's always an array
+  
 } 
 
-export function HydrateFallback() {
-  return (
-    <div className="flex justify-center items-center h-32">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
-    </div>
-  )
-}
 
 const ProjectDetailsPage = ({ loaderData }:Route.ComponentProps) => {
-  const project = loaderData;
+  const {project} = loaderData;
 
   return ( 
     <>
@@ -49,7 +62,7 @@ const ProjectDetailsPage = ({ loaderData }:Route.ComponentProps) => {
           </p>
 
           <ul className="flex flex-wrap text-xs space-x-3 my-6 text-gray-300">
-            {project.stack.map((p) => (
+            {(project.stack ?? []).map((p) => (
               <li key={p} className="border border-gray-700 rounded-md px-2 py-0.5 transition hover:scale-[1.06] bg-gray-900">
                 {p}
               </li>

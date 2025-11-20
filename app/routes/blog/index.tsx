@@ -1,24 +1,30 @@
 import { useState } from "react";
 
 import type { Route } from "./+types/index"; 
-import type { PostMeta } from "~/types"; //modeling data types
+import type { Blogs, StrapiResponse, StrapiPost } from "~/types"; //modeling data types
 import PostCard from "~/components/PostCard";
 import Pagination from "~/components/Pagination";
 import PostFilter from "~/components/PostFilter";
 
-export async function loader( { request }:Route.LoaderArgs):Promise<{posts: PostMeta[]}>{ //{posts: PostMeta} set model types
-  const url = new URL('/posts-meta.json', request.url); //accessing public folder and filename
-  const res = await fetch(url.href); //.href(https://myapp.com/posts-meta.json) comes to the property of URL
+export async function loader( { request }:Route.LoaderArgs):Promise<{posts: Blogs[]}>{ //{posts: Blogs} set model types
+  const res = await fetch(`${import.meta.env.VITE_API_URL}/blogs?populate=image&sort=date:desc`);
 
   if(!res.ok) throw new Error('Failed to fetch data');
 
-  const data = await res.json();
+  const json: StrapiResponse<StrapiPost> = await res.json();
 
-  data.sort((a:PostMeta, b:PostMeta) => { //2nd parameter is sorting to newest first
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
+  const blogs = json.data.map((item) => ({
+    id: item.id,
+    title: item.title,
+    excerpt: item.excerpt,
+    slug: item.slug,
+    date: item.date,
+    body: item.body,
+    image: item.image?.url ? `${item.image.url}` :
+    `/images/no-image.png`,
+  }))
 
-  return { posts: data }; //add posts here as well for typechecking
+  return { posts: blogs }; //add posts here as well for typechecking
 }
 
 const BlogPage = ({loaderData}:Route.ComponentProps) => {

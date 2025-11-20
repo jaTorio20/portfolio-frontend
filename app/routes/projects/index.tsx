@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import type { Route } from "./+types/index"; //file named index inside projects folder
-import type { Project } from "~/types"; //it points to app folder the ~
+import type { Project, StrapiProject, StrapiResponse } from "~/types"; //it points to app folder the ~
 import ProjectCard from "~/components/ProjectCard";
 import Pagination from "~/components/Pagination";
 import { AnimatePresence, motion } from "framer-motion";
@@ -15,10 +15,24 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({request,}: Route.LoaderArgs):Promise<{projects: Project[]}>{ //request in Typescript we used Route.LoaderArgs for its type in fetching data
-  const res = await fetch(`${import.meta.env.VITE_API_URL}/projects`); //:Promise<any> its just optional react router already knows loader function
-  const data = await res.json();  //:Promise<{projects: Project[]}> setting up types them import Project
+  const res = await fetch(`${import.meta.env.VITE_API_URL}/projects?populate=*`); //to get the images or media use ?populate=*
+  const json:StrapiResponse<StrapiProject> = await res.json();  //:Promise<{projects: Project[]}> setting up types them import Project
 
-  return { projects: data } //named it projects based on api endpoint name for readability
+  const projects = json.data.map((item) => ({
+    id: item.id,
+    documentId: item.documentId,
+    title: item.title,
+    description: item.description,
+    image: item.image?.url ? `${item.image.url}` : //you dont need ${import.meta.env. VITE_STRAPI_URL} if you already set up image uploader in cloudinary
+    `/images/no-image.png`,
+    url: item.url,
+    date: item.date,
+    category: item.category,
+    featured: item.featured,
+    stack: item.stack
+  }));
+
+  return { projects } //named it projects based on api endpoint name for readability
 }
 
 const ProjectsPage = ({ loaderData }: Route.ComponentProps) => {
@@ -33,8 +47,7 @@ const ProjectsPage = ({ loaderData }: Route.ComponentProps) => {
   const categories = ['All', ...new Set(projects.map((project) => project.category))];
   
   //Filter project based on the category
-  const filteredProjects = selectedCategory === 'All' ? projects :
-   projects.filter((project) => project.category === selectedCategory)
+  const filteredProjects = selectedCategory === 'All' ? projects : projects.filter((project) => project.category === selectedCategory)
 
   // Calculate total pages
   const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);

@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const ProjectCard = ({ project }: {project:Project}) => {
   return ( 
-    <Link to={`/projects/${project.id}`} className="block transform transition duration-300 hover:scale-[1.02]">
+    <Link to={`/projects/${project.documentId}`} className="block transform transition duration-300 hover:scale-[1.02]">
       <div className="shadow-card bg-gray-900 border border-gray-700 rounded-lg overflow-hidden shadow-sm transition hover:shadow-md">
         <img src={project.image} alt={ project.title } 
           className="w-full h-40 object-cover"

@@ -20,6 +20,14 @@ export type Blogs = {
   image: string;
   body: string;
 };
+export type Stack = {
+  id: string;
+  title: string;
+  image?: string;
+  link?: string;
+  description?: string;
+  stack: string;
+};
 
 export type StrapiResponse<T> = {
   data: T[]
@@ -54,6 +62,23 @@ export type StrapiPost = {
   excerpt: string,
   date: string,
   body: string,
+  image?: {
+    url: string,
+    formats?: {
+      thumbnail?: {url: string;};
+      small?: {url: string;};
+      medium?: {url: string;};
+      large?: {url: string;};
+    }
+  },
+};
+export type StrapiStack = {
+  id: string,
+  documentId: string,
+  title: string,
+  link?: string;
+  description?: string;
+  stack: string;
   image?: {
     url: string,
     formats?: {

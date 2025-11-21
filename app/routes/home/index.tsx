@@ -1,8 +1,9 @@
 import type { Route } from "./+types/index";
 import FeaturedProjects from "~/components/FeaturedProjects";
-import type { Project, StrapiPost, StrapiProject, StrapiResponse } from "~/types";
-import type { Blogs } from "~/types";
+import type { Project, StrapiPost,  StrapiProject, StrapiResponse, StrapiStack } from "~/types";
+import type { Blogs, Stack } from "~/types";
 import LatestPosts from "~/components/LatestPosts";
+import TechStack from "~/components/TechStack";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -12,12 +13,13 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({ request }: Route.LoaderArgs)
-: Promise<{projects:Project[]; posts: Blogs[]}>{
-  const url = new URL(request.url);
+: Promise<{projects:Project[]; posts: Blogs[]; stacks: Stack[]}>{
+  // const url = new URL(request.url);
 
-  const [projectRes, postRes] = await Promise.all([
+  const [projectRes, postRes, stackRes] = await Promise.all([
     fetch(`${import.meta.env.VITE_API_URL}/projects?filters[featured][$eq]=true&populate=*`),     
-    fetch(`${import.meta.env.VITE_API_URL}/blogs?sort[0]=date:desc&populate=*`)
+    fetch(`${import.meta.env.VITE_API_URL}/blogs?sort[0]=date:desc&populate=*`),
+    fetch(`${import.meta.env.VITE_API_URL}/techstacks?populate=*`)
   ]);
 
   if(!projectRes.ok || !postRes.ok){
@@ -25,6 +27,7 @@ export async function loader({ request }: Route.LoaderArgs)
   }
   const projectJson:StrapiResponse<StrapiProject> = await projectRes.json();
   const postJson:StrapiResponse<StrapiPost> = await postRes.json();
+  const stackJson:StrapiResponse<StrapiStack> = await stackRes.json();
 
   const projects = projectJson.data.map((item) => ({
     id: item.id,
@@ -49,17 +52,27 @@ export async function loader({ request }: Route.LoaderArgs)
     `/images/no-image.png`,
     date: item.date
   }));
+  const stacks = stackJson.data.map((item) => ({
+    id: item.id,
+    title: item.title,
+    stack: item.stack,
+    image: item.image?.url ? `${item.image.url}` :
+    `/images/no-image.png`,
+    description: item.description,
+    link: item.link
+  }));
 
-  return {projects, posts};
+  return {projects, posts, stacks};
 }
 
 const HomePage = ({ loaderData }:Route.ComponentProps) => {
-  const { projects, posts } = loaderData;
+  const { projects, posts, stacks } = loaderData;
 
   return (
   <>
     <FeaturedProjects projects={projects} count={6}/>
     <LatestPosts posts={posts} limit={4}/>
+    <TechStack stacks={stacks}/>
   </>
   )
 }

@@ -18,14 +18,21 @@ const Hero = ({
               <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
                 <Link
                   to='/projects'
-                  className='w-3/4 md:w-auto bg-white text-gray-900 px-5 py-2 rounded transition-transform hover:-translate-y-1 duration-300'
+                  className='w-3/4 md:w-auto
+                  text-indigo-400 shadow-card border border-gray-700
+                   px-5 py-2 rounded hover:text-white hover:-translate-y-1 duration-300'
                 >
                   View Projects
                 </Link>
                 <Link
                   to='/contact'
-                  className='w-3/4 md:w-auto border border-gray-50 text-white px-5 py-2 rounded hover:bg-gray-50 hover:text-gray-900 transition'
+                  className='
+                  w-3/4 md:w-auto border border-gray-700 transform duration-300
+                    shadow-card 
+                   text-indigo-400 px-5 py-2 rounded hover:text-white hover:-translate-y-1
+                   transition'
                 >
+
                   Contact Me
                 </Link>
               </div>

@@ -21,4 +21,9 @@ body {
   .tech-stack-shadow-card {
     box-shadow: 0 0px 6px rgba(117, 131, 255, 0.15);
 }
+
+  .tech-hover-shadow-card:hover {
+    box-shadow: 0 6px 10px rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
 }

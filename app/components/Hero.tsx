@@ -19,7 +19,7 @@ const Hero = ({
                 <Link
                   to='/projects'
                   className='w-3/4 md:w-auto
-                  text-indigo-400 shadow-card border border-gray-700
+                  text-indigo-400 tech-stack-shadow-card border border-gray-700
                    px-5 py-2 rounded hover:text-white hover:-translate-y-1 duration-300'
                 >
                   View Projects
@@ -28,7 +28,7 @@ const Hero = ({
                   to='/contact'
                   className='
                   w-3/4 md:w-auto border border-gray-700 transform duration-300
-                    shadow-card 
+                    tech-stack-shadow-card 
                    text-indigo-400 px-5 py-2 rounded hover:text-white hover:-translate-y-1
                    transition'
                 >

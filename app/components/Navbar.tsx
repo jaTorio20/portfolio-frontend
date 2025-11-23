@@ -11,8 +11,8 @@ const Navbar = () => {
   const active = 'text-zinc-100';
 
   return ( 
-    <nav className="bg-gray-900  border-b border-gray-800/50 shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <nav className=" max-w-7xl mx-auto backdrop-blur-lg rounded-full border border-gray-800/50 shadow-md sticky top-1 z-50">
+      <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
         <NavLink to='/' className='flex items-center gap-2 text-lg font-bold text-zinc-100 hover:text-white'>
           <LuNavigation className="text-indigo-400 text-xl"/>
           <span>JohnTorio</span>

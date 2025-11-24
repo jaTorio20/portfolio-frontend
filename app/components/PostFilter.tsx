@@ -6,7 +6,7 @@ type PostFilterProps = {
 const PostFilter = ({ searchQuery, onSearchChange }: PostFilterProps) => {
   return ( 
     <div className="flex justify-between">
-      <h2 className="text-3xl text-white font-bold mb-8">
+      <h2 className="text-3xl mr-2 text-white font-bold mb-8">
         Blog
       </h2>
       <div className="mb-4">

@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const PostCard = ({ post }: {post: Blogs}) => {
   return ( 
-    <article className="bg-gray-900 p-6 rounded-lg my-4 border border-gray-700 shadow-card">
+    <article className="bg-gray-900 p-6 rounded-lg my-6 border border-gray-700 shadow-card">
       <h3 className="text-2xl font-semibold text-indigo-400">
         {post.title}
       </h3>
@@ -14,7 +14,7 @@ const PostCard = ({ post }: {post: Blogs}) => {
 
       {post.image && (
         <img src={post.image} alt={post.title} 
-        className="w-full h-88 object-cover rounded mb-4"
+        className="w-full h-57 md:h-88 object-cover rounded mb-4"
         />
       )}
 

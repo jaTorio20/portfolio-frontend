@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
 import Hero from "~/components/Hero";
 import AboutPreview from "~/components/AboutPreview";
-
+import FooterPage from "~/components/Footer";
 const HomeLayout = () => {
   return ( 
     <>
@@ -14,6 +14,8 @@ const HomeLayout = () => {
 
         <AboutPreview/>
       </section>
+
+      <FooterPage/>
     </>
    );
 }

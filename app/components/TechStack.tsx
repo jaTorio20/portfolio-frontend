@@ -13,7 +13,7 @@ const TechStack = ({ stacks }:TechStackProps) => {
 
 
   return ( 
-      <section className="max-w-6xl mx-auto px-6 ">
+      <section className="max-w-6xl mx-auto px-2 ">
         <h2 className="text-2xl font-bold text-white">
           Tech Stack
         </h2>

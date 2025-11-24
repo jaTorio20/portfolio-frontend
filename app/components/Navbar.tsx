@@ -8,7 +8,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const base = 'transition rounded py-2 pl-2 hover:text-zinc-100 hover:bg-gray-700';
-  const active = 'text-white py-2 pl-2 rounded bg-gray-700';
+  const active = 'text-white py-2 pl-2 rounded bg-gray-800';
   const activeMain = 'text-indigo-400';
   const mainBase = 'text-white hover:text-indigo-400';
 

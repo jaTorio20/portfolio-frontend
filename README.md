@@ -1,87 +1,55 @@
-# Welcome to React Router!
+# Portfolio Frontend
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Simple React Router + Vite frontend that powers my personal portfolio, blog posts, and featured projects.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Tech Stack
 
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- React 19 with React Router 7 for routing and data loading
+- TypeScript + Vite for fast DX
+- Tailwind CSS utilities and a few custom styles in `app/`
+- Markdown blog posts stored under `app/posts`
 
 ## Getting Started
 
-### Installation
-
-Install the dependencies:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-### Development
-
-Start the development server with HMR:
+Run the dev server (Vite + React Router):
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+Optional mock API (blog/projects data):
 
-## Building for Production
+```bash
+npm run json-server
+```
 
-Create a production build:
+## Available Scripts
+
+- `npm run dev` — local development with hot reload on `http://localhost:5173`
+- `npm run build` — production build (server + client bundles)
+- `npm run start` — serve the built app with `react-router-serve`
+- `npm run typecheck` — run the React Router typegen step + TypeScript
+- `npm run json-server` — expose `data/db.json` at `http://localhost:8000`
+
+## Project Structure
+
+- `app/routes` houses all route modules (`home`, `about`, `projects`, `blog`, etc.)
+- `app/components` contains reusable UI pieces (`Hero`, `FeaturedProjects`, `PostCard`, etc.)
+- `app/posts` stores markdown content that the blog routes render
+- `data/db.json` feeds the optional JSON server for local mock data
+- `public/` keeps static assets like images and metadata
+
+## Build & Deploy
 
 ```bash
 npm run build
+npm run start
 ```
 
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+Deploy the `build/` output (client + server) to any Node-compatible host or containerize with the provided `Dockerfile`.

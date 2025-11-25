@@ -1,6 +1,10 @@
-# Portfolio Frontend
+# Personal Portfolio – Frontend
 
-Simple React Router + Vite frontend that powers my personal portfolio, blog posts, and featured projects.
+This is the frontend for my personal portfolio website built with React, React Router v7, TypeScript, Vite, and Tailwind CSS.
+
+🔗 [Live Demo](https://jtorio-portfolio.vercel.app)  
+🔗 [Backend Repo (Strapi CMS)](https://github.com/johnashley132002/portfolio-backend)
+
 
 ## Tech Stack
 

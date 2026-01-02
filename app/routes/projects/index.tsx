@@ -14,8 +14,18 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
+export function headers({}: Route.HeadersArgs) {
+  return {
+    "Cache-Control": "public, max-age=300, s-maxage=300, stale-while-revalidate=600",
+  };
+}
+
 export async function loader({request,}: Route.LoaderArgs):Promise<{projects: Project[]}>{ //request in Typescript we used Route.LoaderArgs for its type in fetching data
-  const res = await fetch(`${import.meta.env.VITE_API_URL}/projects?populate=*`); //to get the images or media use ?populate=*
+  // Optimize: use populate=image instead of populate=* for better performance
+  const res = await fetch(`${import.meta.env.VITE_API_URL}/projects?populate=image`);
+  
+  if(!res.ok) throw new Error('Failed to fetch data');
+  
   const json:StrapiResponse<StrapiProject> = await res.json();  //:Promise<{projects: Project[]}> setting up types them import Project
 
   const projects = json.data.map((item) => ({

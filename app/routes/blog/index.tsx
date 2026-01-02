@@ -6,6 +6,12 @@ import PostCard from "~/components/PostCard";
 import Pagination from "~/components/Pagination";
 import PostFilter from "~/components/PostFilter";
 
+export function headers({}: Route.HeadersArgs) {
+  return {
+    "Cache-Control": "public, max-age=300, s-maxage=300, stale-while-revalidate=600",
+  };
+}
+
 export async function loader( { request }:Route.LoaderArgs):Promise<{posts: Blogs[]}>{ //{posts: Blogs} set model types
   const res = await fetch(`${import.meta.env.VITE_API_URL}/blogs?populate=image&sort=date:desc`);
 

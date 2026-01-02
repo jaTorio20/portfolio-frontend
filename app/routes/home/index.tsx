@@ -12,17 +12,22 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
+export function headers({}: Route.HeadersArgs) {
+  return {
+    "Cache-Control": "public, max-age=300, s-maxage=300, stale-while-revalidate=600",
+  };
+}
+
 export async function loader({ request }: Route.LoaderArgs)
 : Promise<{projects:Project[]; posts: Blogs[]; stacks: Stack[]}>{
-  // const url = new URL(request.url);
-
+  // Optimize populate queries - only fetch needed fields instead of populate=*
   const [projectRes, postRes, stackRes] = await Promise.all([
-    fetch(`${import.meta.env.VITE_API_URL}/projects?filters[featured][$eq]=true&populate=*`),     
-    fetch(`${import.meta.env.VITE_API_URL}/blogs?sort[0]=date:desc&populate=*`),
-    fetch(`${import.meta.env.VITE_API_URL}/techstacks?populate=*`)
+    fetch(`${import.meta.env.VITE_API_URL}/projects?filters[featured][$eq]=true&populate=image`),     
+    fetch(`${import.meta.env.VITE_API_URL}/blogs?sort[0]=date:desc&populate=image&pagination[limit]=4`),
+    fetch(`${import.meta.env.VITE_API_URL}/techstacks?populate=image`)
   ]);
 
-  if(!projectRes.ok || !postRes.ok){
+  if(!projectRes.ok || !postRes.ok || !stackRes.ok){
     throw new Error('Failed to fetch data');
   }
   const projectJson:StrapiResponse<StrapiProject> = await projectRes.json();

@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://johntorio-portfolio.vercel.app/$1",
+      "permanent": true
+    }
+  ]
+}
